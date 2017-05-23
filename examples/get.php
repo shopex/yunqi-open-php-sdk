@@ -11,7 +11,7 @@ require_once(__DIR__ . '/../src/YunqiClient.php');
 
 // 新建对象 填入在Yunqi平台上注册的信息 本地测试的话随意填写就行了
 // 第四个参数 $socket socket文件地址，如果有则优先选择socke方式 ,$socket = "unix:///tmp/api_provider.sock"
-$client = new YunqiClient($url = 'http://apify.shopex.cn/router', $key = 'xjMdeBd4h', $secret = 'FkJdftb5wgeE4dSNYX8waj4');
+$client = new YunqiClient($url = 'http://apify.xyunqi.com:w/router', $key = 'xjMdeBd4h', $secret = 'FkJdftb5wgeE4dSNYX8waj4');
 
 
 // 发起请求
