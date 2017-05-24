@@ -62,8 +62,8 @@ class Requester {
             $query['client_secret'] = $this->app_secret;
         }
         // 拼装最后Url
-        $final_url = preg_replace("/\?.*/", '', $url) . '?' . http_build_query($query);
-        //echo $final_url;exit;
+        $final_url = preg_replace("/\?.*/", '', $url);
+        $postData = array_merge($postData,$query);
         // 发起请求 CURL/SOCKET
         return $this->http->sendRequest($http_method, $final_url, $headers, $postData);
 

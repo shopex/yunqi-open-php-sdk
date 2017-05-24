@@ -41,13 +41,13 @@ class Curl {
         }
 
         curl_setopt($curl, CURLOPT_HTTPHEADER, $header_arr);
+        $http_query = str_replace("+","%20",http_build_query($postData));
 
         // 添加postData
         if ($http_method == 'POST' || $http_method == 'PUT') {
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($postData));
+            curl_setopt($curl, CURLOPT_POSTFIELDS,$http_query);
         }
-
         // 运行cURL，发起请求
         $data = curl_exec($curl);
 

@@ -5,6 +5,7 @@ require_once(__DIR__ . '/Notify.php');
 
 require_once(__DIR__ . '/../modules/Curl.php');
 require_once(__DIR__ . '/../modules/YunqiSign.php');
+require_once(__DIR__ . '/../modules/YunqiException.php');
 
 Class YunqiClient extends Notify {
 

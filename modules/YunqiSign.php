@@ -8,19 +8,17 @@ class YunqiSign {
     //PostParams    = urnencode(PostKey1 + PostValue1 + PostKey2 + PostValue2 ...)
     //ClientSecret  = key的Secret密钥
     public static function produce ($method, $path, $headers, $query, $postData, $secret) {
-
+        $param = array_merge($query,$postData);
         $sign = array(
             $secret,
             $method,
-            rawurlencode($path),
+            rawurlencode($path)."&",
             rawurlencode(self::sign_headers($headers)),
-            rawurlencode(self::sign_params($query)),
-            rawurlencode(self::sign_params($postData)),
+            rawurlencode(self::sign_params($param)),
             $secret
         );
 
         $sign = implode('&', $sign);
-
         return strtoupper(md5($sign));
     }
 
